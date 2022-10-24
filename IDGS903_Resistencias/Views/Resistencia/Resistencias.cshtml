@@ -1,0 +1,357 @@
+﻿@using IDGS903_Resistencias.Models
+
+@model List<IDGS903_Resistencias.Models.Resistencia>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="container-fluid">
+    @using (Html.BeginForm("Resistencias", "Resistencia"))
+    {
+        Resistencia mo = new Resistencia();
+        var Tolerancia = mo.Tolerancia;
+        <div class="row">
+            <div class="col-sm-4">
+                @{
+                    var Banda1 = new List<SelectListItem>()
+{
+         new SelectListItem()
+        {
+            Text="Negro",
+            Value="Negro"
+        },
+
+        new SelectListItem()
+        {
+            Text="Cafe",
+            Value="Cafe"
+        },
+
+          new SelectListItem()
+        {
+            Text="Rojo",
+            Value="Rojo",
+
+        },
+            new SelectListItem()
+        {
+            Text="Naranja",
+            Value="Naranja",
+
+        },
+           new SelectListItem()
+        {
+            Text="Amarillo",
+            Value="Amarillo",
+
+        },
+             new SelectListItem()
+        {
+            Text="Verde",
+            Value="Verde",
+
+        },
+               new SelectListItem()
+        {
+            Text="Azul",
+            Value="Azul",
+
+        },
+                 new SelectListItem()
+        {
+            Text="Violeta",
+            Value="Violeta",
+
+        },
+            new SelectListItem()
+        {
+            Text="Gris",
+            Value="Gris",
+
+        },
+              new SelectListItem()
+        {
+            Text="Blanco",
+            Value="Blanco",
+
+        }
+
+
+    };
+                }
+                <div>
+                    <label>Banda 1</label>
+                </div>
+
+                <label>Color</label>
+                @Html.DropDownList("Banda1", Banda1)
+            </div>
+
+            <div class="col-sm-4">
+                @{
+                    var Banda2 = new List<SelectListItem>()
+
+
+        {
+
+         new SelectListItem()
+        {
+            Text="Negro",
+            Value="Negro"
+        },
+
+
+        new SelectListItem()
+        {
+            Text="Cafe",
+            Value="Cafe"
+        },
+
+          new SelectListItem()
+        {
+            Text="Rojo",
+            Value="Rojo",
+
+        },
+            new SelectListItem()
+        {
+            Text="Naranja",
+            Value="Naranja",
+
+        },
+           new SelectListItem()
+        {
+            Text="Amarillo",
+            Value="Amarillo",
+
+        },
+             new SelectListItem()
+        {
+            Text="Verde",
+            Value="Verde",
+
+        },
+               new SelectListItem()
+        {
+            Text="Azul",
+            Value="Azul",
+
+        },
+                 new SelectListItem()
+        {
+            Text="Violeta",
+            Value="Violeta",
+
+        },
+            new SelectListItem()
+        {
+            Text="Gris",
+            Value="Gris",
+
+        },
+              new SelectListItem()
+        {
+            Text="Blanco",
+            Value="Blanco",
+
+        }
+
+
+    };
+                }
+                <div>
+                    <label>Banda 2</label>
+                </div>
+                <label>Color</label>
+                @Html.DropDownList("Banda2", Banda2)
+
+            </div>
+
+            <div class="col-sm-4">
+                @{
+                    var Banda3 = new List<SelectListItem>()
+{
+        new SelectListItem()
+         {
+            Text="Negro",
+            Value="Negro"
+        },
+          new SelectListItem()
+        {
+
+            Text="Cafe",
+            Value="Cafe"
+        },
+
+          new SelectListItem()
+        {
+            Text="Rojo",
+            Value="Rojo",
+
+        },
+            new SelectListItem()
+        {
+            Text="Naranja",
+            Value="Naranja",
+
+        },
+           new SelectListItem()
+        {
+            Text="Amarillo",
+            Value="Amarillo",
+
+        },
+             new SelectListItem()
+        {
+            Text="Verde",
+            Value="Verde",
+
+        },
+               new SelectListItem()
+        {
+            Text="Azul",
+            Value="Azul",
+
+        },
+                 new SelectListItem()
+        {
+            Text="Violeta",
+            Value="Violeta",
+
+        },
+            new SelectListItem()
+        {
+            Text="Gris",
+            Value="Gris",
+
+        },
+              new SelectListItem()
+        {
+            Text="Blanco",
+            Value="Blanco",
+
+        }
+
+
+    };
+                }
+                <div>
+                    <label>Banda 3</label>
+                </div>
+                <label>Color</label>
+                @Html.DropDownList("Banda3", Banda3)
+            </div>
+
+        </div>
+        <div class="row" style="margin-top:5px;">
+            <div class="col-sm-5">
+
+            </div>
+            <div class="col-sm-5">
+                <div>
+                    @Html.LabelFor(Model => Tolerancia)
+                </div>
+
+                @Html.LabelFor(Model => Tolerancia, "Oro") @Html.RadioButtonFor(Model => Tolerancia, "Oro", new { @class = "text-danger" })
+                @Html.LabelFor(Model => Tolerancia, "Plata") @Html.RadioButtonFor(Model => Tolerancia, "Plata", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
+        <div class="row" style="margin-top:45px;">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <button type="submit" class="btn btn-success">Registrar</button>
+            </div>
+
+            <div class="col-sm-4">
+                <button type="button" id="btnTablaResultado" class="btn btn-primary">Leer Archivo</button>
+            </div>
+
+        </div>
+    }
+    <div class="row" style="margin-top:25px;">
+        <div class="col-lg-6">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Color 1</th>
+                        <th>Color 2</th>
+                        <th>Color 3</th>
+                        <th>Tolerancia</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @if (Model == null)
+                    {
+                        {}
+
+                        <tr>
+                            <td></td>
+                            <td>No hay ningun registro</td>
+                            <td></td>
+                            <td></td>
+
+                        </tr>
+
+
+
+                    }
+                    else
+                    {
+                        Dictionary<string, string> Colores = new Dictionary<string, string>
+            {
+                {"Negro","black" },
+                {"Cafe","brown" },
+                {"Rojo","red" },
+                {"Naranja","orange" },
+                { "Amarillo", "yellow"},
+                {"Verde" , "green"},
+                {"Azul","blue" },
+                {"Violeta","violet" },
+                {"Gris","green"},
+                {"Blanco","white" },
+                {"Oro","gold" },
+                {"Plata","silver" }
+
+            };
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td style="background-color:@Colores[item.Banda1];">@item.Banda1</td>
+                                <td style="background-color:@Colores[item.Banda2];">@item.Banda2</td>
+                                <td style="background-color:@Colores[item.Banda3];">@item.Banda3</td>
+                                <td  style="background-color:@Colores[item.Tolerancia];">@item.Tolerancia</td>
+
+                            </tr>
+                        }
+
+                    }
+
+                </tbody>
+
+
+            </table>
+        </div>
+        <div class="col-lg-6">
+            <div id="divResutado">
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $("#btnTablaResultado").click(function () {
+                $("#divResutado").load("_AlmacenResultados")
+            })
+
+        })
+    </script>
+
+}

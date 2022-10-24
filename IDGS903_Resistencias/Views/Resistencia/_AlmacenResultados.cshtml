@@ -1,0 +1,32 @@
+﻿
+@using IDGS903_Resistencias.Models
+
+@model List<AlmacenResultados>
+@{ Layout = null;}
+
+
+<table class="table table-hover">
+
+    <thead>
+        <tr>
+            <th>Valor</th>
+            <th>Valor Maximo</th>
+            <th>Valor Minimo</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+
+            <tr>
+                <td>@item.Valor</td>
+                <td>@item.ValorMax</td>
+                <td>@item.ValorMin</td>
+          
+            </tr>
+        }
+
+    </tbody>
+</table>
+
